@@ -77,6 +77,25 @@ Return the document type, scope, intended depth, and any assumptions; a criterio
 
 Label the result as a document-based review. Do not claim independent confirmation by the teacher. If the user asks for a review of a missing document, request its content rather than score an imagined plan. Revise ratings when new evidence is supplied and recalculate the denominator if the scope changes. Do not publish, upload, or share the document or review unless requested.
 
+## Screen-time planning (when requested)
+
+Keep this check separate from the ACE score. Use a specific lesson or session; a syllabus alone rarely establishes actual screen exposure. Build an activity ledger with exact evidence, duration, and mode: student device use (including simultaneous projection), teacher projection only, offline, or unclassified. Count overlapping exposure once; do not sum parallel group activities as if every learner experiences all of them. Report a range for optional activities or differing learner paths. Identify whether homework is included.
+
+Sum logged student-device minutes and projection-only minutes separately; their sum estimates planned screen exposure. Compare accounted minutes with the session duration and explain gaps or overlaps. Missing durations mean exposure is not determined, not zero. Do not infer minutes from a tool name, word count, or unspecified video length. This is planned exposure, not observed usage or a health recommendation.
+
+Rate each planning criterion from zero to three using documented evidence:
+
+| Criterion | 0 | 1 | 2 | 3 |
+| --- | --- | --- | --- | --- |
+| Timing is documented | No activity timing | Some activities timed | Most activities timed | All activities timed and total reconciles |
+| Screen use has a learning purpose | Purpose absent | Tools listed without purpose | Purpose stated for most screen activities | Purpose stated for every screen activity |
+| Offline opportunities are planned | None documented | Offline option mentioned | Offline activities timed | Offline activities and transitions timed |
+| Access and alternatives are planned | No alternatives | Barriers acknowledged | Usable alternative described | Alternatives preserve learning and participation |
+
+Screen-time planning score = round(100 × sum of four ratings ÷ 12). Report minutes and this score separately; a shorter screen period does not automatically earn a higher planning score. Browser ledger entries and ratings are manually reviewed, not automatically extracted or verified. Explain the evidence for each rating and disclose incomplete timing.
+
+For presentation or export requests, use bar charts for individual rubric ratings and a pie chart for earned versus remaining points. Label percentages as rubric points, not student achievement. Include readable headings, evidence, priorities, and preliminary/reviewed status. ACE Check offers Present review, Save PDF, and Print review; direct PDF export avoids browser-added URL and timestamp headers.
+
 ## Foundations
 
 - [SOLO guide](https://www.digitaltechnologieshub.edu.au/media/tp5dcdmd/ai-ethics-whats-possible-probable-and-preferred_solo-taxonomy-guide.pdf): depth and complexity of observed understanding

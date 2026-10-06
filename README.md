@@ -80,3 +80,26 @@ Rating explanations and SOLO depth help are stored alongside the rubric in
 `rubric.js`. Selected ratings display this guidance, and the same wording is
 included in review exports and the generated bonus skill. These explanations
 do not change the rating anchors or scoring rules.
+
+## Presentation, color reports, and screen-time planning
+
+`report-view.js` renders accessible local SVG bar/pie charts, a keyboard-controlled
+presentation dialog (arrow keys, Home/End, Escape), and a formatted print report.
+`pdf-export.js` creates a selectable-text color PDF with shaded headings and page
+numbers. It loads local PDF-lib 1.17.1, @pdf-lib/fontkit 1.1.1, and DejaVu Sans fonts
+only when exporting. Licenses/provenance are included in the vendor directories.
+No URL or date is appended to reports; direct PDF generation disables automatic
+creation/modification timestamps. Browser printing requires turning off Headers
+and footers and enabling Background graphics in the user's print dialog.
+
+Screen-time planning uses a manually entered sequential activity ledger. It
+separates student-device use, projection-only viewing, offline time, and unclassified
+time, checks the total against lesson duration, and estimates logged exposure.
+The four self-rated planning criteria assess documented timing, learning purpose,
+offline opportunities, and access/alternatives. Their score is separate from ACE.
+Missing timing means exposure is not determined. This estimates planned activity,
+not observed usage or medically recommended limits. Parallel activities need a
+separate ledger per learner path; simultaneous device/projection exposure is counted once.
+
+Run `node tests/presentation.cjs` with the Playwright environment variables above
+for chart, projection, timing arithmetic, PDF download, and print regressions.

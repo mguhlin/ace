@@ -62,3 +62,12 @@ The site requires no build step. Regenerate the article with
 - Downloaded reviews include the depth definition and selected-rating meanings.
 - Bonus skill is generated with the same explanations as the browser UI.
 - The supplied combined document still scores 78 Extend and 80 Connect.
+
+## Color reports, projection, and screen-time planning — October 6, 2026
+
+- Existing engine and browser regressions passed; private combined source still scores 78 Extend / 80 Connect and is not published.
+- PDF/DOCX import regression passed, including error preservation and local-only requests.
+- Presentation regression passed: accessible bar/pie charts, keyboard navigation and Escape, screen-time ledger arithmetic, overlapping display classification, excess-duration warning, mobile width, direct PDF download, and print graphs.
+- Color PDF inspected visually and with pypdf: selectable text, complete rubric descriptions and screen-time entries, shaded headings, page numbers, no appended website URL, no creation/modification date metadata.
+- Projection overview inspected at 1366 × 768. Browser printing has colored SVG charts; actual browser-added headers are controlled by user print settings. Direct Save PDF avoids those headers entirely.
+- Skill regenerated and validated. Timing rubric is separate from ACE and records documented planning, not health limits or measured usage. Missing timing is disclosed rather than treated as zero exposure.
