@@ -1,6 +1,7 @@
 """Build the article page from blog.md using the small Markdown subset it needs."""
 from pathlib import Path
 import html, re
+import xml.etree.ElementTree as ET
 root=Path(__file__).resolve().parent.parent
 
 def inline(s):
@@ -13,7 +14,20 @@ lines=(root/'blog.md').read_text().splitlines(); parts=[]; i=0
 while i<len(lines):
     line=lines[i]
     if not line.strip(): i+=1; continue
-    if line.startswith('#'):
+    image = re.fullmatch(r'!\[([^\]]+)\]\(((?:https://mguhlin\.github\.io/ace/)?assets/infographics/[a-z-]+\.svg)\)', line)
+    if image:
+        alt, src = image.groups()
+        src = src.removeprefix('https://mguhlin.github.io/ace/')
+        mobile = src.removesuffix('.svg') + '-mobile.svg'
+        if not (root/src).is_file() or not (root/mobile).is_file():
+            raise FileNotFoundError(f'Missing infographic: {src} or {mobile}')
+        desktop_size = ET.parse(root/src).getroot().attrib
+        mobile_size = ET.parse(root/mobile).getroot().attrib
+        dw, dh = desktop_size['width'], desktop_size['height']
+        mw, mh = mobile_size['width'], mobile_size['height']
+        parts.append(f'<figure class="section-banner"><picture><source media="(max-width: 600px)" srcset="{mobile}" width="{mw}" height="{mh}"><img src="{src}" width="{dw}" height="{dh}" alt="{html.escape(alt, quote=True)}" decoding="async"></picture>'+ ('<figcaption>Visual inspiration: <a href="https://mguhlin.org/resources/infographics/#ace">Miguel’s ACE infographic collection</a>.</figcaption>' if src.endswith('/checkpoints.svg') else '') + '</figure>')
+        i += 1
+    elif line.startswith('#'):
         level=len(line)-len(line.lstrip('#')); text=line[level:].strip(); slug=re.sub(r'[^a-z0-9]+','-',text.lower()).strip('-')
         parts.append(f'<h{level} id="{slug}">{inline(text)}</h{level}>'); i+=1
     elif line.startswith('|'):
@@ -28,6 +42,6 @@ while i<len(lines):
         block=[]
         while i<len(lines) and lines[i].strip(): block.append(lines[i]); i+=1
         parts.append('<p>'+inline(' '.join(block))+'</p>')
-header='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ACE It: Three Checkpoints for Better Assignments | Miguel Guhlin</title><meta name="description" content="Design and review assignments with ACE and SOLO, lesson-plan scoring, presentation charts, color PDF reports, and screen-time planning."><link rel="canonical" href="https://mguhlin.github.io/ace/blog.html"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="style.css"></head><body><a class="skip" href="#article">Skip to article</a><header class="top"><a class="brand" href="./">ACE<span>It</span><span class="brand-dot">.</span></a><nav aria-label="Main"><a href="./">Assignment builder</a><a href="score.html">Score a plan</a><a href="blog.md" download>Download article</a></nav></header><main class="article" id="article"><p class="eyebrow">MIGUEL GUHLIN · TEACHING WITH GEN AI</p>'''
+header='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ACE It: Three Checkpoints for Better Assignments | Miguel Guhlin</title><meta name="description" content="Design and review assignments with ACE and SOLO, lesson-plan scoring, presentation charts, color PDF reports, and screen-time planning."><link rel="canonical" href="https://mguhlin.github.io/ace/blog.html"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="blog.css"></head><body><a class="skip" href="#article">Skip to article</a><header class="top"><a class="brand" href="./">ACE<span>It</span><span class="brand-dot">.</span></a><nav aria-label="Main"><a href="./">Assignment builder</a><a href="score.html">Score a plan</a><a href="blog.md" download>Download article</a></nav></header><main class="article" id="article"><p class="eyebrow">MIGUEL GUHLIN · TEACHING WITH GEN AI</p>'''
 footer='''<div class="article-actions"><a href="./">Try the ACE It builder</a><a href="blog.md" download>Download Markdown</a></div></main><footer><span>ACE It · Miguel Guhlin</span><a href="https://mguhlin.github.io/">More creations</a></footer></body></html>'''
 (root/'blog.html').write_text(header+'\n'.join(parts)+footer)

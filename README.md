@@ -103,3 +103,20 @@ separate ledger per learner path; simultaneous device/projection exposure is cou
 
 Run `node tests/presentation.cjs` with the Playwright environment variables above
 for chart, projection, timing arithmetic, PDF download, and print regressions.
+
+## Article infographic banners
+
+The article has a responsive SVG infographic immediately above its title and
+every major section heading. Each of the 12 diagrams has a desktop and mobile
+layout, descriptive alternative text, and printable vector graphics.
+
+Run `python3 scripts/build_infographics.py`, then `python3 scripts/build_blog.py`
+after editing diagram content or layout. The Markdown article links to hosted
+SVGs so its downloaded copy can display the banners. The HTML uses local
+responsive assets and links the checkpoint banner to Miguel's ACE collection.
+
+The ACE panels draw visual inspiration from the local copy of
+https://mguhlin.org/resources/infographics/#ace: blue/teal/gold panels,
+speech/link/rocket symbols, sentence stems, and a short takeaway strip.
+New chart and screen-time examples are labeled illustrative and do not show
+student results or imply a measured health threshold.

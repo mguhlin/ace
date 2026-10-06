@@ -1,0 +1,10 @@
+/* Section diagrams use purpose-built SVG layouts at each reading width. */
+.article .section-banner{margin:44px 0 18px;break-inside:avoid}
+.article .section-banner:first-of-type{margin-top:20px}
+.section-banner picture,.section-banner img{display:block;width:100%}
+.section-banner img{height:auto;border-radius:14px}
+.article .section-banner+h2{margin-top:0;scroll-margin-top:1rem}
+.article .section-banner+h1{margin-top:0}
+@media(max-width:600px){.article .section-banner{margin-top:32px}.section-banner img{border-radius:12px}}
+@media print{.article .section-banner{margin:20px 0 10px;break-after:avoid;page-break-after:avoid}.section-banner img{max-height:240px;object-fit:contain;object-position:left center}.section-banner+h2,.section-banner+h1{break-after:avoid}.section-banner{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+.section-banner figcaption{font-size:.82rem;color:var(--muted);margin:8px 0 0;line-height:1.5}
