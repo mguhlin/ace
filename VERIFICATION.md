@@ -14,3 +14,18 @@ Validated on October 6, 2026 with Playwright and system Chromium:
 
 The site requires no build step. Regenerate the article with
 `python3 scripts/build_blog.py` after editing `blog.md`.
+
+## ACE Check additions
+
+- Four, five, and six criteria produce the correct scope-adjusted denominator.
+- Sample draft scores 67/100; full reviewed ratings score 100/100.
+- Missing documented practices score zero without inventing evidence.
+- Positive ratings with fabricated evidence cannot become reviewed ratings.
+- Rating/evidence edits clear confirmation; document/scope edits clear the review.
+- Syllabus mode, local text-file loading, clipboard, download, and print pass.
+- User document markup remains text without script execution.
+- Scorer has no mobile horizontal overflow; desktop layout visually reviewed.
+- Home page links reach the scorer and downloadable bonus skill.
+- Existing assignment builder still generates all three checkpoints.
+- Skill frontmatter and structure pass the skill-creator validator.
+- Rubric anchors in the skill are generated from the same data as the browser tool.
