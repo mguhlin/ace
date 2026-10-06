@@ -75,3 +75,8 @@ browser tests to verify the documented 78 Extend / 80 Connect regression case.
 Its text is read locally and is not checked into the repository or published.
 Suggestions are still heuristics, not a semantic Gen AI review. Naming a framework
 or padding a document with keywords does not establish integrated learning design.
+
+Rating explanations and SOLO depth help are stored alongside the rubric in
+`rubric.js`. Selected ratings display this guidance, and the same wording is
+included in review exports and the generated bonus skill. These explanations
+do not change the rating anchors or scoring rules.

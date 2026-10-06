@@ -1,5 +1,5 @@
 /* Keep the standalone skill rubric synchronized with rubric.js. */
-const fs=require('node:fs');const path=require('node:path');const {rubric,version}=require('../rubric.js');
+const fs=require('node:fs');const path=require('node:path');const {rubric,version,depthHelp}=require('../rubric.js');
 const introduction=`---
 name: ace-review
 description: Assess a lesson plan or syllabus with an evidence-based ACE and SOLO planning rubric, calculate a design score, and recommend focused improvements. Use for instructional-design reviews, not student grading or misconduct detection.
@@ -49,10 +49,16 @@ Three-point boundaries:
 
 For multi-passage evidence in an ACE Check report, separate exact excerpts with a blank line, a line containing three hyphens, and another blank line. Keep section labels separate from the excerpts. Explain any uncertainty rather than silently filling a gap.
 
+## Explain the rating terms
+
+When returning a review, explain what each rating means in plain language. “Intended SOLO depth” means the kind of understanding the goal asks students to demonstrate, not task length or difficulty. Use the explanations below alongside each criterion, and distinguish your illustrative examples from evidence in the supplied document.
+
+${Object.values(depthHelp).map(d=>'- **'+d.label+':** '+d.meaning+' Example: '+d.example).join('\n')}
+
 ## Rubric
 
 `;
-const criteria=rubric.map(r=>`### ${r.name}\n\n`+r.anchors.map((a,i)=>`- **${i}:** ${a}`).join('\n')+`\n\nPossible improvement: ${r.improve}\n`).join('\n');
+const criteria=rubric.map(r=>`### ${r.name}\n\n${r.meaning}\n\n`+r.anchors.map((a,i)=>`- **${i}:** ${a}\n  - Meaning: ${r.explanations[i]}`).join('\n')+`\n\nPossible improvement: ${r.improve}\n`).join('\n');
 const ending=`
 ## Calculate and report
 

@@ -52,3 +52,13 @@ The site requires no build step. Regenerate the article with
 - Exact evidence from multiple sections validates; adding an invented excerpt fails confirmation.
 - Browser results display rationales and section locations; exports include engine version and rationale.
 - Bonus skill preserves rubric anchors and includes matching cross-section and three-point guidance.
+
+## Rating explanations
+
+- All six criteria display a plain-language purpose and selected-rating explanation.
+- Changing a rating updates its explanation and keeps it linked with aria-describedby.
+- Expandable rating lists include explanations for all four ratings.
+- SOLO depth help changes with Articulate, Connect, and Extend.
+- Downloaded reviews include the depth definition and selected-rating meanings.
+- Bonus skill is generated with the same explanations as the browser UI.
+- The supplied combined document still scores 78 Extend and 80 Connect.

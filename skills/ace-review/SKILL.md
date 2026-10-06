@@ -47,59 +47,103 @@ Three-point boundaries:
 
 For multi-passage evidence in an ACE Check report, separate exact excerpts with a blank line, a line containing three hyphens, and another blank line. Keep section labels separate from the excerpts. Explain any uncertainty rather than silently filling a gap.
 
+## Explain the rating terms
+
+When returning a review, explain what each rating means in plain language. “Intended SOLO depth” means the kind of understanding the goal asks students to demonstrate, not task length or difficulty. Use the explanations below alongside each criterion, and distinguish your illustrative examples from evidence in the supplied document.
+
+- **Articulate:** Students explain one concept or several relevant facts accurately. This is unistructural (one aspect) or multistructural (several aspects) understanding in SOLO. Example: Explain what a physical region is and describe its features.
+- **Connect:** Students explain how ideas fit together and why the relationship matters. This is relational understanding in SOLO; a list of separate facts is not enough. Example: Explain how access to water influences where people settle, using evidence.
+- **Extend:** Students justify a principle or prediction beyond the original case and explain when it might fail. This is extended-abstract understanding in SOLO; another similar example alone is not enough. Example: Propose a principle about water and settlement, test it in another setting, and explain when technology could change the prediction.
+
 ## Rubric
 
 ### Goal-to-task fit
 
+Does the work students do actually show the understanding promised by the learning goal?
+
 - **0:** No assessable learning goal or no task is stated.
+  - Meaning: An assessable goal says what students will explain, solve, or demonstrate. A topic such as “geography” alone is not a goal; without a goal or task, the match cannot be checked.
 - **1:** A learning goal and task are stated, but their alignment is unclear.
+  - Meaning: The goal and task exist, but you cannot tell whether the task shows that learning. Example: the goal asks students to explain settlement, but the task only asks them to label a map.
 - **2:** The task asks students to demonstrate the stated goal.
+  - Meaning: Students do work that demonstrates the goal. Example: they explain why a settlement fits a location. Clear success criteria describing a good explanation are still needed for three points.
 - **3:** The goal, task, and success criteria align at the intended SOLO depth.
+  - Meaning: Intended SOLO depth means the kind of understanding you want students to show: explain concepts (Articulate), explain relationships (Connect), or justify generalizations and their limits (Extend). The goal, task, and success criteria must ask for that same kind of thinking. Success criteria describe what a successful response includes.
 
 Possible improvement: State one assessable outcome, then identify the task and success criteria that show it.
 
 ### Concept explanation
 
+Can students explain the idea accurately, rather than only name it?
+
 - **0:** No opportunity to reveal concept understanding is described.
+  - Meaning: The document does not describe how students will show that they understand the concept. This means the opportunity is not documented, not that students cannot understand it.
 - **1:** Students identify or recall relevant information.
+  - Meaning: Students name, label, identify, or recall information. Example: they name a river. This checks recognition, but does not yet show that they can explain the concept.
 - **2:** Students explain relevant concepts and provide examples.
+  - Meaning: Students explain the concept and give an example. Example: they explain what a natural resource is and identify water as an example.
 - **3:** Students explain concepts, distinguish examples from non-examples, and receive support for misconceptions.
+  - Meaning: Students explain what belongs to the concept and what does not. A non-example is a case that does not fit, such as a human-built road when identifying natural features. The teacher also addresses a mistaken idea, rather than only listing possible misconceptions.
 
 Possible improvement: Add a brief explanation with an example. Identify how you will respond to a misconception.
 
 ### Reasoned relationships
 
+Can students explain a relationship among ideas and support it?
+
 - **0:** No relationship among ideas is required.
+  - Meaning: Students are not asked to show how ideas relate. Listing water, climate, and transport as separate facts does not explain their connections.
 - **1:** Students name or compare several ideas without explaining their relationship.
+  - Meaning: Students name or compare ideas but do not explain how or why they are connected. Example: they state that two places have different rainfall without explaining why the difference matters.
 - **2:** Students explain how or why ideas relate, with support.
+  - Meaning: Students explain the relationship and support it with evidence or reasoning. Example: they use rainfall and farming information to explain why a location may support crops.
 - **3:** Students integrate ideas into a coherent explanation and test or revise the relationship.
+  - Meaning: A coherent explanation brings the ideas together so the reasoning makes sense. Students must test the relationship or revise their explanation after a challenge or new evidence. “Be willing to revise” alone does not require this action.
 
 Possible improvement: Ask students to explain how two ideas interact, support the relationship, and revise one weak link.
 
 ### Bounded generalization
 
+Can students carry a principle into another situation and explain its limits?
+
 - **0:** No application beyond the original case is described.
+  - Meaning: Students work only with the original case. The document does not describe using the learning in another situation.
 - **1:** Students apply a method to a similar example.
+  - Meaning: Students repeat a familiar method on a similar example. Example: they use the same map-reading steps on another map, without explaining a broader principle.
 - **2:** Students apply a principle under changed conditions and explain their reasoning.
+  - Meaning: Students apply an idea when a case, condition, or assumption changes and explain why it still works or needs adjustment. Example: they explain how a settlement choice changes during a drought.
 - **3:** Students justify a broader principle or prediction and explain a limit or counterexample.
+  - Meaning: A generalization is a broader claim that reaches beyond one case. Bounded means students explain when that claim may not hold. A counterexample is a case that challenges it. Example: students justify a claim about water and settlement, then explain how irrigation limits that claim.
 
 Possible improvement: Change an assumption or case. Ask what principle carries over and when it would fail.
 
 ### Instruction-to-revision cycle
 
+Do teaching and feedback lead students to improve and explain their reasoning?
+
 - **0:** No modeling, useful feedback, or opportunity to act on feedback is described.
+  - Meaning: The document does not describe showing students how to think through a task, giving useful feedback, or letting them act on it. A final grade alone does not provide this cycle.
 - **1:** Modeling or feedback is mentioned without a clear student action.
+  - Meaning: Modeling or feedback is mentioned, but the student action is unclear. Modeling means showing the thinking steps, not simply displaying a finished answer.
 - **2:** Modeling or actionable feedback is paired with student practice or revision.
+  - Meaning: Students see a model or receive a specific suggestion, then practice or revise. Actionable feedback tells them what to improve, such as “explain how this evidence supports your claim.”
 - **3:** Students see modeled reasoning, act on specific feedback, and explain how a revision improves their understanding.
+  - Meaning: Integrated means the parts work together: students see reasoning modeled, act on specific feedback, and explain what changed and why the revision improved their understanding. These steps can be documented in different sections of a combined plan.
 
 Possible improvement: Model one reasoning move. Give specific feedback, allow revision, and ask what improved.
 
 ### Individual learning check
 
+Can you see each student’s understanding and decide what to teach next?
+
 - **0:** Only a completed product or group result is assessed.
+  - Meaning: Only a final product or group answer is assessed. That does not reveal what each student can explain or apply independently.
 - **1:** An individual response is collected, but understanding is not examined.
+  - Meaning: Each student submits something, but the response does not examine the intended learning. Example: an attendance check or “Did you enjoy the activity?” is not a check of understanding.
 - **2:** Students individually explain or apply the intended learning, with an accessible response option.
+  - Meaning: Each student explains or applies the learning. An accessible response option lets them use speech, writing, or a diagram when that mode is not the skill being assessed.
 - **3:** The individual check reveals the intended depth and informs a stated reteaching or extension decision.
+  - Meaning: Intended depth means the selected Articulate, Connect, or Extend target. The individual response checks that thinking, and the plan states what happens next. Reteaching means addressing a gap; extension means offering a further challenge. Example: if a student lists facts without explaining their relationship, model the missing connection and ask for a revised response.
 
 Possible improvement: Add a brief individual explanation or application. Offer an accessible mode and state how the result guides teaching.
 
