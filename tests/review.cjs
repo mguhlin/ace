@@ -3,20 +3,34 @@ const assert = require('node:assert/strict');
 const base = process.env.ACE_BASE_URL || 'http://127.0.0.1:4188/';
 (async()=>{
 const browser=await chromium.launch({headless:true,...(process.env.ACE_BROWSER_PATH?{executablePath:process.env.ACE_BROWSER_PATH}:{})});const context=await browser.newContext({permissions:['clipboard-read','clipboard-write']});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
-await page.goto(base+'score.html');await page.getByRole('button',{name:'Try a sample lesson'}).click();assert.equal(await page.locator('.rating-card').count(),6);assert.equal(await page.locator('#score-number').innerText(),'67');assert.match(await page.locator('#score-label').innerText(),/Preliminary/);
+await page.goto(base+'score.html');await page.getByRole('button',{name:'Try a sample lesson'}).click();assert.equal(await page.locator('.rating-card').count(),6);assert.equal(await page.locator('#score-number').innerText(),'94');assert.match(await page.locator('#score-label').innerText(),/Preliminary/);
 for(const check of await page.locator('.confirm-label input').all())await check.check();assert.match(await page.locator('#score-label').innerText(),/Reviewed/);
 for(const select of await page.locator('.rating-card select').all())await select.selectOption('3');assert.equal(await page.locator('#score-number').innerText(),'100');assert.match(await page.locator('#score-label').innerText(),/Preliminary/);for(const check of await page.locator('.confirm-label input').all())await check.check();assert.match(await page.locator('#score-label').innerText(),/Reviewed/);
 await page.locator('#evidence-alignment').fill('This passage is invented.');await page.locator('#confirm-alignment').check();assert.match(await page.locator('#score-label').innerText(),/Preliminary/);assert.match(await page.locator('#error-alignment').innerText(),/exact passage/);
 await page.getByRole('button',{name:'Copy review',exact:true}).click();assert.match(await page.evaluate(()=>navigator.clipboard.readText()),/Confirmed: no/);
 const downloadEvent=page.waitForEvent('download');await page.getByRole('button',{name:'Download review',exact:true}).click();const download=await downloadEvent;const stream=await download.createReadStream();let report='';for await(const chunk of stream)report+=chunk;assert.match(report,/Preliminary design score: 100/);
-await page.locator('#review-depth').selectOption('a');assert.equal(await page.locator('.rating-card').count(),0);await page.getByRole('button',{name:'Create preliminary review'}).click();assert.equal(await page.locator('.rating-card').count(),4);assert.equal(await page.locator('#score-number').innerText(),'67');
+await page.locator('#review-depth').selectOption('a');assert.equal(await page.locator('.rating-card').count(),0);await page.getByRole('button',{name:'Create preliminary review'}).click();assert.equal(await page.locator('.rating-card').count(),4);assert.equal(await page.locator('#score-number').innerText(),'92');
 await page.locator('#document-type').selectOption('syllabus');await page.locator('#review-depth').selectOption('c');await page.getByRole('button',{name:'Create preliminary review'}).click();assert.equal(await page.locator('.rating-card').count(),5);assert.match(await page.locator('#review-output').innerText(),/syllabus/);
 await page.locator('#document-text').fill('Office hours are Wednesday. The reading list is posted.');await page.getByRole('button',{name:'Create preliminary review'}).click();assert.equal(await page.locator('#score-number').innerText(),'0');for(const check of await page.locator('.confirm-label input').all())await check.check();assert.match(await page.locator('#score-label').innerText(),/Reviewed/);
 await page.locator('#document-file').setInputFiles({name:'plan.txt',mimeType:'text/plain',buffer:Buffer.from('Students will explain a concept with an example.')});await page.waitForFunction(()=>document.querySelector('#document-text').value.includes('Students will'));await page.getByRole('button',{name:'Create preliminary review'}).click();assert.equal(await page.locator('.rating-card').count(),5);
 await page.locator('#document-text').fill('<img src=x onerror="window.injected=true">');await page.getByRole('button',{name:'Create preliminary review'}).click();assert.equal(await page.locator('#review-output img').count(),0);assert.equal(await page.evaluate(()=>window.injected),undefined);
 await page.getByRole('button',{name:'Try a sample lesson'}).click();await page.setViewportSize({width:375,height:812});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await page.screenshot({path:'/tmp/ace-score-mobile.png',fullPage:true});await page.setViewportSize({width:1440,height:1000});await page.screenshot({path:'/tmp/ace-score-desktop.png',fullPage:true});
-await page.getByRole('button',{name:'Print review',exact:true}).click();await page.emulateMedia({media:'print'});assert.equal(await page.locator('#print-review').isVisible(),true);assert.match(await page.locator('#print-review').innerText(),/Preliminary design score: 67/);await page.emulateMedia({media:'screen'});
+await page.getByRole('button',{name:'Print review',exact:true}).click();await page.emulateMedia({media:'print'});assert.equal(await page.locator('#print-review').isVisible(),true);assert.match(await page.locator('#print-review').innerText(),/Preliminary design score: 94/);await page.emulateMedia({media:'screen'});
 const skill=await context.request.get(base+'skills/ace-review/SKILL.md');assert.equal(skill.status(),200);assert.match(await skill.text(),/name: ace-review/);
+if(process.env.ACE_REVIEW_DOCUMENT){
+ await page.emulateMedia({media:'screen'});await page.goto(base+'score.html');
+ await page.locator('#document-type').selectOption('combined');
+ await page.locator('#document-file').setInputFiles(process.env.ACE_REVIEW_DOCUMENT);
+ await page.waitForFunction(()=>document.querySelector('#file-status').textContent.includes('File loaded locally'));
+ await page.getByRole('button',{name:'Create preliminary review'}).click();
+ assert.equal(await page.locator('#score-number').innerText(),'78');
+ assert.deepEqual(await page.locator('.rating-card select').evaluateAll(nodes=>nodes.map(n=>Number(n.value))),[3,2,2,2,3,2]);
+ for(const check of await page.locator('.confirm-label input').all())await check.check();
+ assert.match(await page.locator('#score-label').innerText(),/Reviewed/);
+ await page.locator('#review-depth').selectOption('c');await page.getByRole('button',{name:'Create preliminary review'}).click();
+ assert.equal(await page.locator('#score-number').innerText(),'80');
+ console.log('PASS: browser review of supplied combined document matches 78 Extend / 80 Connect, with valid multi-passage evidence.');
+}
 await page.goto(base);assert.equal(await page.getByRole('link',{name:'Score a plan',exact:true}).count(),1);assert.equal(await page.getByRole('link',{name:'Download the ACE review skill'}).count(),1);await page.getByRole('button',{name:'Try the history example'}).click();assert.equal(await page.locator('.step-letter').count(),3);assert.deepEqual(errors,[]);
 console.log('PASS: score arithmetic and scope, evidence validation, human confirmation, invalidation, syllabi, file loading, exports, print, injection safety, mobile layout, skill link, and existing builder.');await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});

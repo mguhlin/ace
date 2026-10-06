@@ -5,8 +5,9 @@ https://mguhlin.github.io/ace/ using GitHub Pages from `main` at the repository 
 
 Use Articulate, Connect, Extend to design learning checkpoints aligned with SOLO.
 The assignment builder uses deterministic templates, not a Gen AI API.
-ACE Check (`score.html`) suggests preliminary rubric ratings using transparent phrase
-matching, then requires user confirmation with exact document evidence. It does not
+ACE Check (`score.html`) uses criterion-specific local rules to collect evidence
+across sections, suggests zero-to-three ratings, and requires user confirmation
+with exact document passages. It does not
 establish misconduct. Scores assess documented design, not teaching performance. User inputs remain in memory, are never sent
 to a service, and clear on reload. Copy, download, and print include edited prompts.
 
@@ -31,8 +32,11 @@ for subject accuracy, student needs, and institutional policy before use.
 ## Scoring and bonus skill
 
 - `rubric.js` owns version 1.0 of the six-criterion rubric and rating anchors.
+- `assessment.js` owns automatic engine 2.0: cross-section evidence, rationales, and integrated-anchor rules.
 - `score.js` adjusts the denominator to Articulate, Connect, or Extend.
-- Positive reviewed ratings require an exact supporting passage in the source.
+- Positive reviewed ratings require exact supporting passages in the source.
+- Separate multiple excerpts with a blank line, `---`, and another blank line.
+- Combined scope reviews course procedures and lesson examples together, with their limits disclosed.
 - Score bands are planning labels, not validated grade cutoffs.
 - PDF, DOCX, text, and Markdown files load locally into the editable source field.
 - PDF and DOCX limits: 10 MB; PDF page limit: 200; extracted text limit: 100,000 characters.
@@ -57,3 +61,17 @@ contain no personal data. The locked PDF's test password is `test-password`.
 `vendor/pdfjs` includes PDF.js 6.4.299 and its worker, character maps, font data,
 and licenses. `vendor/mammoth` includes Mammoth 1.13.0 and its license. DOCX raw-text
 extraction runs in `docx-worker.js`; no converted document HTML is rendered.
+
+## Automatic scoring engine
+
+Run `node tests/assessment.cjs` for criterion-level checks. The engine can suggest
+three points when integrated evidence is present. Required relationship revision
+is distinct from encouragement to revise; an actual teaching response is distinct
+from a reflective question. Optional extension alone cannot earn three points for
+bounded generalization. The underlying rubric remains version 1.0.
+
+Set `ACE_REVIEW_DOCUMENT` to a local combined document when running the engine or
+browser tests to verify the documented 78 Extend / 80 Connect regression case.
+Its text is read locally and is not checked into the repository or published.
+Suggestions are still heuristics, not a semantic Gen AI review. Naming a framework
+or padding a document with keywords does not establish integrated learning design.
