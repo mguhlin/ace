@@ -1,6 +1,6 @@
 """Build the article page from blog.md using the small Markdown subset it needs."""
 from pathlib import Path
-import html, re
+import html, re, json
 import xml.etree.ElementTree as ET
 root=Path(__file__).resolve().parent.parent
 
@@ -14,18 +14,27 @@ lines=(root/'blog.md').read_text().splitlines(); parts=[]; i=0
 while i<len(lines):
     line=lines[i]
     if not line.strip(): i+=1; continue
-    image = re.fullmatch(r'!\[([^\]]+)\]\(((?:https://mguhlin\.github\.io/ace/)?assets/infographics/[a-z-]+\.svg)\)', line)
+    image = re.fullmatch(r'!\[([^\]]+)\]\(((?:https://mguhlin\.github\.io/ace/)?assets/infographics/[a-z-]+\.(?:svg|webp))\)', line)
     if image:
         alt, src = image.groups()
         src = src.removeprefix('https://mguhlin.github.io/ace/')
-        mobile = src.removesuffix('.svg') + '-mobile.svg'
-        if not (root/src).is_file() or not (root/mobile).is_file():
-            raise FileNotFoundError(f'Missing infographic: {src} or {mobile}')
-        desktop_size = ET.parse(root/src).getroot().attrib
-        mobile_size = ET.parse(root/mobile).getroot().attrib
-        dw, dh = desktop_size['width'], desktop_size['height']
-        mw, mh = mobile_size['width'], mobile_size['height']
-        parts.append(f'<figure class="section-banner"><picture><source media="(max-width: 600px)" srcset="{mobile}" width="{mw}" height="{mh}"><img src="{src}" width="{dw}" height="{dh}" alt="{html.escape(alt, quote=True)}" decoding="async"></picture>'+ ('<figcaption>Visual inspiration: <a href="https://mguhlin.org/resources/infographics/#ace">Miguel’s ACE infographic collection</a>.</figcaption>' if src.endswith('/checkpoints.svg') else '') + '</figure>')
+        if src.endswith('.webp'):
+            manifest = json.loads((root/'assets/infographics/illustrations.json').read_text())
+            asset = manifest[Path(src).name]
+            if not (root/src).is_file():
+                raise FileNotFoundError(f'Missing illustration: {src}')
+            title = html.escape(asset["title"], quote=True)
+            iw, ih = asset["width"], asset["height"]
+            parts.append(f'<figure class="section-banner illustrated-banner"><a href="{src}" target="_blank" rel="noopener" aria-label="Open full-size infographic: {title} (new tab)"><img src="{src}" width="{iw}" height="{ih}" alt="{html.escape(alt, quote=True)}" decoding="async"></a><figcaption>Select the banner to open it full size.'+ (' Visual inspiration: <a href="https://mguhlin.org/resources/infographics/#ace">Miguel’s ACE infographic collection</a>.' if src.endswith('/checkpoints-illustrated.webp') else '') + '</figcaption></figure>')
+        else:
+            mobile = src.removesuffix('.svg') + '-mobile.svg'
+            if not (root/src).is_file() or not (root/mobile).is_file():
+                raise FileNotFoundError(f'Missing infographic: {src} or {mobile}')
+            desktop_size = ET.parse(root/src).getroot().attrib
+            mobile_size = ET.parse(root/mobile).getroot().attrib
+            dw, dh = desktop_size['width'], desktop_size['height']
+            mw, mh = mobile_size['width'], mobile_size['height']
+            parts.append(f'<figure class="section-banner"><picture><source media="(max-width: 600px)" srcset="{mobile}" width="{mw}" height="{mh}"><img src="{src}" width="{dw}" height="{dh}" alt="{html.escape(alt, quote=True)}" decoding="async"></picture></figure>')
         i += 1
     elif line.startswith('#'):
         level=len(line)-len(line.lstrip('#')); text=line[level:].strip(); slug=re.sub(r'[^a-z0-9]+','-',text.lower()).strip('-')

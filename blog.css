@@ -8,3 +8,8 @@
 @media(max-width:600px){.article .section-banner{margin-top:32px}.section-banner img{border-radius:12px}}
 @media print{.article .section-banner{margin:20px 0 10px;break-after:avoid;page-break-after:avoid}.section-banner img{max-height:240px;object-fit:contain;object-position:left center}.section-banner+h2,.section-banner+h1{break-after:avoid}.section-banner{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 .section-banner figcaption{font-size:.82rem;color:var(--muted);margin:8px 0 0;line-height:1.5}
+.illustrated-banner>a{display:block;border-radius:12px;overflow:hidden}
+.illustrated-banner>a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.illustrated-banner img{background:#fffdf8;border:1px solid #e7e4dc}
+@media print{.illustrated-banner>a{overflow:visible}.illustrated-banner figcaption{display:none}}
+@media print{.illustrated-banner img{max-height:none;width:100%;height:auto}}

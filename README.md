@@ -106,17 +106,25 @@ for chart, projection, timing arithmetic, PDF download, and print regressions.
 
 ## Article infographic banners
 
-The article has a responsive SVG infographic immediately above its title and
-every major section heading. Each of the 12 diagrams has a desktop and mobile
-layout, descriptive alternative text, and printable vector graphics.
+The article displays 12 illustrated infographic banners, one immediately above
+its title and each major section heading. Bespoke artwork combines bold navy
+headlines, blue/teal/gold accents, diagrams, sentence stems, and classroom scenes.
+Images scale with the article and open at full resolution when selected. Each
+has descriptive alternative text and is included in browser printing.
 
-Run `python3 scripts/build_infographics.py`, then `python3 scripts/build_blog.py`
-after editing diagram content or layout. The Markdown article links to hosted
-SVGs so its downloaded copy can display the banners. The HTML uses local
-responsive assets and links the checkpoint banner to Miguel's ACE collection.
+Production artwork is saved as `assets/infographics/*-illustrated.webp`.
+`illustrations.json` records image dimensions and titles used by the article
+builder. `illustration-prompts.json` records the shared style and each banner's
+content specification. Artwork was produced with the built-in image_gen tool
+using the imagegen skill, then encoded as WebP for smaller downloads.
 
-The ACE panels draw visual inspiration from the local copy of
-https://mguhlin.org/resources/infographics/#ace: blue/teal/gold panels,
-speech/link/rocket symbols, sentence stems, and a short takeaway strip.
-New chart and screen-time examples are labeled illustrative and do not show
-student results or imply a measured health threshold.
+Edit `blog.md`, then run `python3 scripts/build_blog.py` to regenerate the page.
+The downloadable Markdown links to the hosted illustrations. To replace artwork,
+generate the relevant image using its prompt, save the WebP, and update the image
+manifest before rebuilding. The earlier SVG diagrams and their generator remain
+available as editable source material.
+
+Visual inspiration: Miguel's local ACE collection at
+https://mguhlin.org/resources/infographics/#ace, including its speech/link/rocket
+symbols, sentence stems, and classroom examples. New screen-time examples are
+labeled illustrative and do not show measured usage or health thresholds.

@@ -1,0 +1,84 @@
+{
+  "tool": "Built-in image_gen (imagegen skill)",
+  "style": "Use case: infographic-diagram. Asset: polished illustrated infographic hero banner for an educator's blog. Landscape composition around 2.2:1, full bleed white/light cream paper, no website UI. Visual inspiration: Miguel Guhlin's ACE posters: very bold navy headline, teal subheading, blue/teal/golden yellow coding, playful hand-inked speech, puzzle/link, rocket and notebook illustrations, warm teacher-friendly editorial design, small graph-paper texture. Make it a real infographic with expressive bespoke illustrations and visual relationships, not a row of UI cards or text boxes. Use only short specified text, exact spelling, strongly legible and large, sparse layout with broad breathing room. High quality flat ink-and-watercolor illustration with bold outline, diagram paths and infographics. No paragraph copy, no watermark, no logo, no tiny text. Keep important labels and art away from outer edges. Each banner's body should teach its concept visually. All specified phrases must be readable and spelled correctly.",
+  "banners": [
+    {
+      "key": "intro",
+      "headline": "ACE It",
+      "subheading": "Three thinking moves",
+      "specification": "Three imaginative scenes joined by a flowing pencil line: student explains with speech bubble labelled Articulate; puzzle links and evidence labelled Connect; student launches a paper rocket into a new situation labelled Extend. Exact secondary captions: Explain the idea; Support the links; Apply and test."
+    },
+    {
+      "key": "explain",
+      "headline": "Make Thinking Visible",
+      "subheading": "Listen • Connect • Test",
+      "specification": "A student speech bubble opens into a magnifying glass showing an idea, connected concept nodes, and a changed-condition experiment. Exact labels: Explain an idea; Show a connection; Test the reasoning."
+    },
+    {
+      "key": "goal",
+      "headline": "One Goal. Clear Evidence.",
+      "subheading": "Goal → Task → Success",
+      "specification": "Draw an illustrated target holding the phrase Explain the relationship; a survey clipboard Evaluate a new survey; an evidence-check checklist Support the conclusion. Connect the objects with a continuous path."
+    },
+    {
+      "key": "checkpoints",
+      "headline": "Articulate. Connect. Extend.",
+      "subheading": "Three checkpoints for learning",
+      "specification": "Three illustrated stages: speech balloon, linked puzzle pieces, and rocket entering a new scenario. Exact labels Articulate, Connect, Extend. Exact sentence stems In my own words… ; These ideas connect because… ; If the case changes… . Large A C E circles."
+    },
+    {
+      "key": "solo",
+      "headline": "How Deep Is the Understanding?",
+      "subheading": "SOLO Taxonomy",
+      "specification": "Five ascending illustrated steps with exact labels Prestructural, Unistructural, Multistructural, Relational, Extended abstract. Show respectively tangled thread, one isolated idea dot, three separate dots, three linked dots, a network expanding into a new case. Additional short labels: Misses the task; One aspect; Separate aspects; Connected explanation; Broader claim + limits. Do not label grade numbers or achievement percentages."
+    },
+    {
+      "key": "record",
+      "headline": "Keep the Learning Record Small",
+      "subheading": "A few responses that guide teaching",
+      "specification": "Illustrate a notebook spread, pencil and digital submission floating above: initial speech bubble Explain; connected sketches Connect; marked-up paper Revise; new case illustrated with branching path Apply. A small sticky note says What changed, and why? Another says Check the help you used."
+    },
+    {
+      "key": "review",
+      "headline": "Evidence Before the Score",
+      "subheading": "Read • Adjust • Confirm",
+      "specification": "Illustrated annotated lesson plan through magnifying glass to six colored rubric tokens: Goal fit; Concepts; Relationships; Generalization; Revision; Individual check. Pencil marks on paper, thoughtful teacher. Bottom large sequence Read passages → Adjust ratings → Confirm. Small label Design score, not student achievement."
+    },
+    {
+      "key": "present",
+      "headline": "Put the Review on the Big Screen",
+      "subheading": "Discuss the evidence. Choose a change.",
+      "specification": "Illustrated projector, large teaching-team screen with colorful bars and a pie diagram, educators discussing an evidence page, a PDF sheet. Only chart label Rubric points; do not invent numerical values. Big feature labels Present review; Color PDF; Choose an improvement."
+    },
+    {
+      "key": "time",
+      "headline": "Where Do the 45 Minutes Go?",
+      "subheading": "Illustrative lesson • planned time",
+      "specification": "Accurate three-segment horizontal time ribbon: Projection 10 min, Devices 15 min, Offline 20 min; lengths proportional to 10,15,20. Above: teacher projector, student tablet, discussion with notebook. Prominent stopwatch reads 25 min planned screen exposure. Smaller exact note Count overlapping screen use once. No health threshold or actual monitoring claim."
+    },
+    {
+      "key": "skill",
+      "headline": "Take the Rubric With You",
+      "subheading": "A reusable review guide",
+      "specification": "A large illustrated file labelled SKILL.md unfolds into a rubric card, evidence magnifying glass and review checklist, with small notebook showing lesson plan. Exact short labels Bring your document; Ask for evidence; Check the review. Artwork educational and inviting, no fake brand logos."
+    },
+    {
+      "key": "strategies",
+      "headline": "Make the Support Usable",
+      "subheading": "Model • Feedback • Revision • Transfer",
+      "specification": "An illustrated looping learning pathway: teacher shows reasoning on whiteboard, precise feedback speech bubble, learner revises a paper, compares two cases. Exact stage labels Model thinking; Give feedback; Let students revise; Compare cases. Small banner Ask what improved, and why. No effect sizes or invented research claims."
+    },
+    {
+      "key": "example",
+      "headline": "Try ACE in History",
+      "subheading": "Explain causes. Support links. Test a claim.",
+      "specification": "A history notebook with small period-appropriate French Revolution motifs, bread and coin as Economic pressure and civic document as Political legitimacy. Three stages labelled Articulate: explain two causes; Connect: support their interaction; Extend: compare another case. Show a weak reasoning link mended by a pencil and a comparison diagram. No invented historical quotes or dates."
+    }
+  ],
+  "edits": [
+    {
+      "key": "review",
+      "instruction": "Preserve the image except the ratings clipboard: replace five-star rows with a zero-to-three rubric rating showing 0 1 2 3 and the label Rubric rating."
+    }
+  ]
+}

@@ -79,3 +79,10 @@ The site requires no build step. Regenerate the article with
 - Browser checks passed for all 24 SVGs: no clipped or overlapping text, descriptive alt text, loaded images, mobile source switching, and no page overflow at 375 px.
 - Visually inspected ACE panels, SOLO staircase, mobile presentation diagram, and mobile banners. Illustration values are explicitly labeled.
 - Printed the article to a 10-page PDF and confirmed the SVG text and new section content remain present.
+
+## Illustrated infographic redesign — October 6, 2026
+
+- Replaced the displayed section banners with 12 bespoke illustrated infographic images generated through the built-in image_gen tool and imagegen skill.
+- Reviewed every image for its main labels, reading order, and conceptual accuracy. Corrected the review illustration's rating clipboard to the actual 0–3 rubric scale. The screen-time illustration shows 10 + 15 + 20 = 45 minutes and 25 minutes of planned screen exposure.
+- Encoded production artwork as WebP: the complete 12-image set is approximately 2.80 MB. Source prompts and image dimensions are recorded in the asset directory.
+- Browser checks passed for banner placement above every heading, loaded images, meaningful alt text, working full-size links, no mobile page overflow, and printable graphics. Desktop/mobile screenshots and print output inspected.

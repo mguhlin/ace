@@ -1,4 +1,4 @@
-![Articulate: explain an idea. Connect: support a relationship. Extend: test a broader claim. Collect a few responses as an assignment develops.](https://mguhlin.github.io/ace/assets/infographics/intro.svg)
+![Articulate: explain an idea. Connect: support a relationship. Extend: test a broader claim. Collect a few responses as an assignment develops.](https://mguhlin.github.io/ace/assets/infographics/intro-illustrated.webp)
 
 # ACE It: Three Checkpoints for Better Assignments
 
@@ -6,7 +6,7 @@ It’s Sunday evening, and you’re reviewing an assignment you’ve taught for 
 
 Sound familiar? Gen AI has made a familiar assessment problem harder to ignore: a finished product gives you only part of the picture.
 
-![Three prompts make thinking visible: explain an idea with an example, show how ideas connect, and test the reasoning under a changed condition.](https://mguhlin.github.io/ace/assets/infographics/explain.svg)
+![Three prompts make thinking visible: explain an idea with an example, show how ideas connect, and test the reasoning under a changed condition.](https://mguhlin.github.io/ace/assets/infographics/explain-illustrated.webp)
 
 ## Start With What Students Can Explain
 
@@ -16,7 +16,7 @@ I’d start with an assignment you already teach. Keep the content and add three
 
 That’s **ACE It: Articulate, Connect, Extend**. The [ACE framework](https://mglearn.github.io/tcea/ace/) gives students a routine they can remember. SOLO Taxonomy helps you judge how much understanding their responses reveal.
 
-![Align the learning goal, demonstration task, and success criteria. Example: explain survey sample selection, evaluate another survey, and support a conclusion with its limits.](https://mguhlin.github.io/ace/assets/infographics/goal.svg)
+![Align the learning goal, demonstration task, and success criteria. Example: explain survey sample selection, evaluate another survey, and support a conclusion with its limits.](https://mguhlin.github.io/ace/assets/infographics/goal-illustrated.webp)
 
 ## Choose One Learning Goal
 
@@ -28,7 +28,7 @@ For a statistics lesson, your goal might be: “Students will explain how sample
 
 Match the goal to the course. A lesson that builds basic knowledge may stop at Articulate. An assignment about relationships may focus on Connect. Use Extend when applying or generalizing a principle belongs in the learning goal.
 
-![Articulate asks what the idea means. Connect asks how ideas relate. Extend asks what carries to a new case and where it fails. Include feedback and revision.](https://mguhlin.github.io/ace/assets/infographics/checkpoints.svg)
+![Articulate asks what the idea means. Connect asks how ideas relate. Extend asks what carries to a new case and where it fails. Include feedback and revision.](https://mguhlin.github.io/ace/assets/infographics/checkpoints-illustrated.webp)
 
 ## Add Three Checkpoints
 
@@ -44,7 +44,7 @@ At Connect, pause the assignment. Give one suggestion students can act on: “Yo
 
 At Extend, change something that matters. Change the numbers, the source, an assumption, or a constraint. Ask students which part of their reasoning still works and which part needs attention.
 
-![SOLO: prestructural misses the task; unistructural shows one aspect; multistructural shows separate aspects; relational links them coherently; extended abstract justifies a broader claim with limits.](https://mguhlin.github.io/ace/assets/infographics/solo.svg)
+![SOLO: prestructural misses the task; unistructural shows one aspect; multistructural shows separate aspects; relational links them coherently; extended abstract justifies a broader claim with limits.](https://mguhlin.github.io/ace/assets/infographics/solo-illustrated.webp)
 
 ## Use SOLO to Read the Responses
 
@@ -62,7 +62,7 @@ Articulate usually supports unistructural and multistructural understanding. Con
 
 A second example does not automatically reach the highest level. Look at the reasoning. If a student can apply a method to a similar problem, that is useful progress. Ask for a supported generalization when the goal calls for it.
 
-![One learning record collects an initial explanation, a connection revised after feedback, and an application with limits. Add a note about help that students checked, changed, or rejected.](https://mguhlin.github.io/ace/assets/infographics/record.svg)
+![One learning record collects an initial explanation, a connection revised after feedback, and an application with limits. Add a note about help that students checked, changed, or rejected.](https://mguhlin.github.io/ace/assets/infographics/record-illustrated.webp)
 
 ## Make the Online Part Small
 
@@ -76,7 +76,7 @@ Include a short tool-use note: “What help did you use? Which suggestion did yo
 
 The **[ACE It builder](https://mguhlin.github.io/ace/)** creates an editable plan, student prompts, and a learning-record template from your goal. It uses built-in templates and runs in your browser. Review its suggestions against your subject and learners before sharing them.
 
-![At Extend, review goal-to-task fit, concept explanation, reasoned relationships, bounded generalization, instruction and revision, and the individual learning check. Read passages, adjust ratings, confirm, and choose an improvement.](https://mguhlin.github.io/ace/assets/infographics/review.svg)
+![At Extend, review goal-to-task fit, concept explanation, reasoned relationships, bounded generalization, instruction and revision, and the individual learning check. Read passages, adjust ratings, confirm, and choose an improvement.](https://mguhlin.github.io/ace/assets/infographics/review-illustrated.webp)
 
 ## Give Your Plan a Second Look
 
@@ -101,7 +101,7 @@ Wondering what “intended SOLO depth” means? The tool explains it beside the 
 
 The review identifies up to three improvements. Pick one you can make before teaching. The score describes documented design; it does not measure student achievement or establish misconduct.
 
-![Illustrative rubric bars show ratings of three, two, and one out of three. A pie chart represents earned and remaining rubric points, not student achievement. Present the review and save a color PDF.](https://mguhlin.github.io/ace/assets/infographics/present.svg)
+![A teaching team views a projected review with bar and pie charts labelled rubric points, saves a color PDF, and chooses an improvement. The charts are illustrative and do not measure student achievement.](https://mguhlin.github.io/ace/assets/infographics/present-illustrated.webp)
 
 ## Put the Review on the Big Screen
 
@@ -111,7 +111,7 @@ Use the charts to start a conversation. “Our feedback is described, but where 
 
 Select **Save PDF** for a report with color graphs, shaded headings, supporting passages, and page numbers. The downloaded PDF adds no website URL or timestamp. If you use **Print review**, turn off your browser’s **Headers and footers** and enable **Background graphics** in the print dialog. You can also copy the review or download it as text.
 
-![Illustrative 45-minute lesson: 10 minutes of projection, 15 minutes of student device use, and 20 minutes offline. Planned screen exposure is 25 minutes. Count overlapping device and projection use once.](https://mguhlin.github.io/ace/assets/infographics/time.svg)
+![Illustrative 45-minute lesson: 10 minutes of projection, 15 minutes of student device use, and 20 minutes offline. Planned screen exposure is 25 minutes. Count overlapping device and projection use once.](https://mguhlin.github.io/ace/assets/infographics/time-illustrated.webp)
 
 ## Account for the Screen Time
 
@@ -123,13 +123,13 @@ The tool compares logged activity minutes with the lesson duration and flags gap
 
 A separate four-part rubric asks whether timing is documented, screen activities have a learning purpose, offline opportunities are planned, and learners have usable access alternatives. You rate those parts yourself. Its planning score stays separate from ACE. Fewer screen minutes alone do not earn a better rating, and the estimate does not establish actual usage or a recommended health limit.
 
-![Use the downloadable Markdown skill with the document, ask for exact evidence and uncertainty, and check the review. The skill includes rubric explanations, calculations, and screen-time guidance.](https://mguhlin.github.io/ace/assets/infographics/skill.svg)
+![Use the downloadable Markdown skill with the document, ask for exact evidence and uncertainty, and check the review. The skill includes rubric explanations, calculations, and screen-time guidance.](https://mguhlin.github.io/ace/assets/infographics/skill-illustrated.webp)
 
 ## Take the Rubric With You
 
 The **[ACE review skill](https://mguhlin.github.io/ace/skills/ace-review/SKILL.md)** is a downloadable Markdown file with the rubric, rating explanations, scoring procedure, and screen-time review guidance. Give it to an assistant that can follow Markdown instructions alongside your document. It directs the assistant to cite evidence and explain uncertainty. Review its conclusions as you would the browser tool’s suggestions.
 
-![Model the thinking, give specific feedback, let students revise and explain improvement, then compare cases to consider where a principle applies or fails.](https://mguhlin.github.io/ace/assets/infographics/strategies.svg)
+![Model the thinking, give specific feedback, let students revise and explain improvement, then compare cases to consider where a principle applies or fails.](https://mguhlin.github.io/ace/assets/infographics/strategies-illustrated.webp)
 
 ## Put High-Effect Strategies to Work
 
@@ -141,7 +141,7 @@ Teach transfer by comparing the first situation with the changed one. Help stude
 
 Those figures describe research averages for the practices. They do not predict the results of this routine. ACE It combines established ideas; it has not been evaluated as a separate intervention.
 
-![History example: explain economic pressure and political legitimacy, support how they interacted, revise a weak link, then test a broader claim against another case and its limits.](https://mguhlin.github.io/ace/assets/infographics/example.svg)
+![History example: explain economic pressure and political legitimacy, support how they interacted, revise a weak link, then test a broader claim against another case and its limits.](https://mguhlin.github.io/ace/assets/infographics/example-illustrated.webp)
 
 ## Try It With an Assignment You Know
 
