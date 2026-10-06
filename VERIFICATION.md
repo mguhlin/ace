@@ -29,3 +29,14 @@ The site requires no build step. Regenerate the article with
 - Existing assignment builder still generates all three checkpoints.
 - Skill frontmatter and structure pass the skill-creator validator.
 - Rubric anchors in the skill are generated from the same data as the browser tool.
+
+## PDF and DOCX imports
+
+- Multi-page PDF text loads into the editable source and can be scored.
+- Scanned, password-protected, and invalid PDFs show specific recovery guidance.
+- DOCX paragraphs and table-cell text are preserved; document markup stays text.
+- Invalid DOCX and unsupported DOC formats preserve the existing source text.
+- Rapid PDF-to-DOCX switching uses the latest selection and restores form controls.
+- Import requests stay on the site's origin; document data is not uploaded.
+- File controls have no horizontal overflow at 375px.
+- Existing scoring regression suite passes after document-import changes.

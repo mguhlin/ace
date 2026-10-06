@@ -17,7 +17,8 @@ to a service, and clear on reload. Copy, download, and print include edited prom
 - Run `python3 -m http.server 4188 --bind 127.0.0.1` from this directory.
 - Run `node --check app.js` for a JavaScript syntax check.
 
-No build dependencies, third-party scripts, analytics, fonts, or runtime service.
+No build dependencies, externally hosted scripts, analytics, or runtime service.
+PDF.js and Mammoth are vendored locally and loaded only for PDF or DOCX imports.
 GitHub Pages provides hosting. External source links navigate to other sites.
 
 ## Research scope
@@ -33,7 +34,9 @@ for subject accuracy, student needs, and institutional policy before use.
 - `score.js` adjusts the denominator to Articulate, Connect, or Extend.
 - Positive reviewed ratings require an exact supporting passage in the source.
 - Score bands are planning labels, not validated grade cutoffs.
-- Text and Markdown files load locally; PDF and Word content can be pasted.
+- PDF, DOCX, text, and Markdown files load locally into the editable source field.
+- PDF and DOCX limits: 10 MB; PDF page limit: 200; extracted text limit: 100,000 characters.
+- Text/Markdown limit: 500 KB. Image-only PDFs need OCR; older DOC files must be saved as DOCX.
 - `skills/ace-review/SKILL.md` is the standalone downloadable assistant skill.
 - Run `node scripts/build_skill.cjs` after changing the rubric to synchronize it.
 - Validate syntax with `node --check score.js` and `node --check rubric.js`.
@@ -42,3 +45,15 @@ Browser regression checks are in `tests/review.cjs`. With Playwright installed,
 run `node tests/review.cjs` against the local server. Set `ACE_BASE_URL` to test a
 deployment, `ACE_PLAYWRIGHT_MODULE` to use an existing Playwright installation,
 and `ACE_BROWSER_PATH` to use a system Chromium executable.
+
+## Document import checks
+
+`tests/documents.cjs` covers multi-page PDF extraction, scanned and locked PDFs,
+corrupt files, DOCX table text, switching files, preservation of existing text,
+local-only network requests, and mobile layout. Run it with the same Playwright
+environment variables as `tests/review.cjs`. Synthetic fixtures in `tests/fixtures`
+contain no personal data. The locked PDF's test password is `test-password`.
+
+`vendor/pdfjs` includes PDF.js 6.4.299 and its worker, character maps, font data,
+and licenses. `vendor/mammoth` includes Mammoth 1.13.0 and its license. DOCX raw-text
+extraction runs in `docx-worker.js`; no converted document HTML is rendered.

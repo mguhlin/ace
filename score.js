@@ -46,7 +46,120 @@ function downloadReview(){const url=URL.createObjectURL(new Blob([report()],{typ
 function invalidate(){if(review){review=null;find('review-output').replaceChildren(node('p','Document or scope changed. Create a new review to score the current version.'));find('review-status').textContent='Previous review cleared.';}}
 find('review-form').addEventListener('submit',makeReview);
 for(const id of ['document-text','document-type','review-depth','document-name'])find(id).addEventListener('input',invalidate);
-find('document-file').addEventListener('change',async()=>{const file=find('document-file').files[0];if(!file)return;if(!/\.(txt|md)$/i.test(file.name)||file.size>500000){find('review-status').textContent='Choose a .txt or .md file under 500 KB.';find('document-file').value='';return;}try{const text=await file.text();if(text.length>100000)throw new Error('too large');invalidate();find('document-text').value=text;find('review-status').textContent='File loaded locally. Create a preliminary review when ready.';}catch{find('review-status').textContent='Could not read this file. Paste text under 100,000 characters instead.';}find('document-file').value='';});
+// PDF.js is served by this site and loaded only for a PDF selection.
+let fileLoadId = 0;
+let pdfTask = null;
+let pdfLibrary = null;
+let docxTask = null;
+function setFileLoading(loading) {
+ find('review-form').setAttribute('aria-busy', String(loading));
+ for (const control of find('review-form').querySelectorAll('input, textarea, select, button')) {
+  if (control.id !== 'document-file') control.disabled = loading;
+ }
+}
+async function extractPDF(file, loadId) {
+ pdfLibrary ||= import('./vendor/pdfjs/pdf.min.mjs').catch(error => { pdfLibrary = null; throw error; });
+ const pdfjs = await pdfLibrary;
+ if (loadId !== fileLoadId) return null;
+ pdfjs.GlobalWorkerOptions.workerSrc = new URL('./vendor/pdfjs/pdf.worker.min.mjs', document.baseURI).href;
+ const task = pdfjs.getDocument({
+  data: new Uint8Array(await file.arrayBuffer()),
+  cMapUrl: new URL('./vendor/pdfjs/cmaps/', document.baseURI).href,
+  cMapPacked: true,
+  standardFontDataUrl: new URL('./vendor/pdfjs/standard_fonts/', document.baseURI).href,
+  isEvalSupported: false,
+  disableFontFace: true
+ });
+ if (loadId !== fileLoadId) { await task.destroy(); return null; }
+ pdfTask = task;
+ try {
+  const pdf = await task.promise;
+  if (pdf.numPages > 200) throw new Error('PDF_PAGE_LIMIT');
+  const pages = []; let total = 0; let emptyPages = 0;
+  for (let number = 1; number <= pdf.numPages; number++) {
+   if (loadId !== fileLoadId) return null;
+   find('file-status').textContent = `Reading PDF page ${number} of ${pdf.numPages}…`;
+   const page = await pdf.getPage(number);
+   const content = await page.getTextContent();
+   const text = content.items.filter(item => typeof item.str === 'string')
+    .map(item => item.str + (item.hasEOL ? '\n' : ' ')).join('').trim();
+   page.cleanup();
+   if (!text) emptyPages++;
+   pages.push(text);
+   total += text.length + 2;
+   if (total > 100000) throw new Error('DOCUMENT_TEXT_LIMIT');
+  }
+  const text = pages.join('\n\n').trim();
+  if (!text) throw new Error('PDF_NO_TEXT');
+  return {text, message: `PDF text loaded locally from ${pdf.numPages} ${pdf.numPages === 1 ? 'page' : 'pages'}. Check the extracted text before scoring.` +
+   (emptyPages ? ` ${emptyPages} ${emptyPages === 1 ? 'page had' : 'pages had'} no readable text; check for scans or missing content.` : '')};
+ } finally {
+  await task.destroy();
+  if (pdfTask === task) pdfTask = null;
+ }
+}
+async function extractDOCX(file, loadId) {
+ const data = await file.arrayBuffer();
+ if (loadId !== fileLoadId) return null;
+ return new Promise((resolve, reject) => {
+  const worker = new Worker('./docx-worker.js');
+  const timer = setTimeout(() => finish(new Error('DOCX_TIMEOUT')), 30000);
+  const task = {worker, cancel: () => finish(new Error('LOAD_CANCELLED'))};
+  docxTask = task;
+  function finish(error, result) {
+   clearTimeout(timer); worker.terminate();
+   if (docxTask === task) docxTask = null;
+   if (error) reject(error); else resolve(result);
+  }
+  worker.onmessage = event => {
+   if (event.data.error) return finish(new Error(event.data.error));
+   finish(null, {text: event.data.text, message: 'DOCX text loaded locally. Check the extracted text before scoring.' +
+    (event.data.warnings ? ' Some document features were not recognized; compare the text with your original.' : '')});
+  };
+  worker.onerror = event => { event.preventDefault(); finish(new Error('DOCX_INVALID')); };
+  worker.postMessage(data, [data]);
+ });
+}
+find('document-file').addEventListener('change', async () => {
+ const file = find('document-file').files[0]; if (!file) return;
+ const loadId = ++fileLoadId;
+ if (pdfTask) { pdfTask.destroy().catch(() => {}); pdfTask = null; }
+ if (docxTask) docxTask.cancel();
+ find('document-file').value = '';
+ const isPDF = /\.pdf$/i.test(file.name);
+ const isDOCX = /\.docx$/i.test(file.name);
+ if (!/\.(pdf|docx|txt|md)$/i.test(file.name) || file.size > (isPDF || isDOCX ? 10000000 : 500000)) {
+  setFileLoading(false);
+  find('file-status').textContent = 'Choose a PDF or DOCX up to 10 MB, or a .txt or .md file up to 500 KB. Your existing text is unchanged.';
+  return;
+ }
+ setFileLoading(true);
+ find('file-status').textContent = isPDF ? 'Reading PDF locally…' : isDOCX ? 'Reading DOCX locally…' : 'Reading file locally…';
+ try {
+  const result = isPDF ? await extractPDF(file, loadId) : isDOCX ? await extractDOCX(file, loadId) : {text: await file.text(), message: 'File loaded locally. Check the text before scoring.'};
+  if (loadId !== fileLoadId || !result) return;
+  if (result.text.length > 100000) throw new Error('DOCUMENT_TEXT_LIMIT');
+  if (!result.text.trim()) throw new Error('DOCUMENT_NO_TEXT');
+  invalidate();
+  find('document-text').value = result.text;
+  find('file-status').textContent = result.message;
+  find('review-status').textContent = 'Document loaded. Create a preliminary review when ready.';
+ } catch (error) {
+  if (loadId !== fileLoadId) return;
+  let message = 'Could not read this file. Try a different file or paste its text.';
+  if (error.name === 'PasswordException') message = 'This PDF needs a password. Save an unlocked copy and try again.';
+  else if (error.message === 'PDF_NO_TEXT') message = 'No readable text was found. This PDF may be a scan. Run OCR first, then upload the searchable PDF or paste its text.';
+  else if (error.message === 'PDF_PAGE_LIMIT') message = 'This PDF exceeds 200 pages. Upload the relevant lesson or syllabus pages.';
+  else if (error.message === 'DOCUMENT_TEXT_LIMIT') message = 'The extracted text exceeds 100,000 characters. Upload a shorter document or paste the relevant sections.';
+  else if (error.message === 'DOCUMENT_NO_TEXT') message = 'This file contains no text. Choose another file or paste its text.';
+  else if (error.message === 'DOCX_INVALID') message = 'Could not read this DOCX. It may be damaged, password-protected, or not a DOCX file. Save a fresh DOCX copy or paste its text.';
+  else if (error.message === 'DOCX_TIMEOUT') message = 'This DOCX took too long to read. Try a shorter document or paste the relevant text.';
+  else if (error.name === 'InvalidPDFException') message = 'This PDF is damaged or is not a valid PDF. Save a fresh copy and try again.';
+  find('file-status').textContent = message + ' Your existing text is unchanged.';
+ } finally {
+  if (loadId === fileLoadId) setFileLoading(false);
+ }
+});
 find('review-example').addEventListener('click',()=>{find('document-type').value='lesson';find('review-depth').value='e';find('document-name').value='Survey conclusions';find('document-text').value='Learning goal: Students will explain how sample selection affects a survey conclusion.\nThe assignment and success criteria assess that learning goal through a supported explanation.\nStudents explain the concept of sample bias and give an example and a non-example.\nStudents explain how sample selection and the resulting conclusion relate, using evidence to support the relationship.\nThe teacher models a worked example, gives specific feedback, and asks students to revise their explanation and explain what improved.\nStudents predict how the conclusion changes in a new case, justify a broader principle, and explain its limits with a counterexample.\nEach student completes an individual check to explain their reasoning, using a written response, diagram, or spoken explanation. The teacher will reteach if the relationship is unclear.';makeReview();});
 
 function printReview(){let pre=find('print-review');if(!pre){pre=node('pre');pre.id='print-review';document.body.append(pre);}pre.textContent=report();document.body.classList.add('printing-review');window.print();}
