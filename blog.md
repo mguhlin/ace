@@ -64,6 +64,51 @@ Include a short tool-use note: “What help did you use? Which suggestion did yo
 
 The **[ACE It builder](https://mguhlin.github.io/ace/)** creates an editable plan, student prompts, and a learning-record template from your goal. It uses built-in templates and runs in your browser. Review its suggestions against your subject and learners before sharing them.
 
+## Give Your Plan a Second Look
+
+Once you have a draft, open **[ACE Check](https://mguhlin.github.io/ace/score.html)**. Paste your lesson plan or syllabus, or upload a PDF, DOCX, text, or Markdown file. Choose lesson plan, syllabus, or combined syllabus and lesson plans, then select the intended Articulate, Connect, or Extend depth. The document is read locally in your browser. A scanned PDF needs searchable text first.
+
+The tool looks across the supplied sections for evidence and suggests ratings from zero to three. At Extend, it reviews six parts of the design:
+
+| Criterion | The question to ask |
+| --- | --- |
+| Goal-to-task fit | Does the task reveal the understanding promised by the goal? |
+| Concept explanation | Can students explain the idea accurately and give examples? |
+| Reasoned relationships | Do students explain how ideas relate and support their reasoning? |
+| Bounded generalization | Can students justify a broader claim and explain where it fails? |
+| Instruction-to-revision cycle | Do students use modeling and feedback to improve their thinking? |
+| Individual learning check | Does each student reveal understanding that guides your next teaching decision? |
+
+Articulate uses four criteria. Connect adds reasoned relationships. Extend adds bounded generalization. The score is the percentage of available rubric points earned for the selected depth.
+
+Treat the first score as a starting point. The automatic suggestions use local rules, so they can miss context. Read the supporting passages, check the rating explanations, adjust the ratings, and confirm each one. A syllabus routine and a lesson example may jointly document a practice, but that does not establish that it happens in every lesson.
+
+Wondering what “intended SOLO depth” means? The tool explains it beside the rating: the kind of understanding students must demonstrate. A longer answer does not automatically show deeper understanding.
+
+The review identifies up to three improvements. Pick one you can make before teaching. The score describes documented design; it does not measure student achievement or establish misconduct.
+
+## Put the Review on the Big Screen
+
+Planning with a department or teaching team? Select **Present review**. The presentation view shows the overall score, bar charts for the applicable criteria, and a pie chart of earned and remaining points. Move through the criterion slides with the arrow keys, use **Full screen** when available, and select **Exit presentation** to return to the scoring tool.
+
+Use the charts to start a conversation. “Our feedback is described, but where do students act on it?” gives the group something concrete to improve. A chart percentage represents rubric points, not the percentage of students who understand the lesson.
+
+Select **Save PDF** for a report with color graphs, shaded headings, supporting passages, and page numbers. The downloaded PDF adds no website URL or timestamp. If you use **Print review**, turn off your browser’s **Headers and footers** and enable **Background graphics** in the print dialog. You can also copy the review or download it as text.
+
+## Account for the Screen Time
+
+A lesson can have thoughtful checkpoints and still leave you wondering how long students will spend looking at a screen. Select **Check screen time** to enter timed activities from the plan. Record student device use, teacher projection only, offline activity, or unclassified time.
+
+For a 45-minute lesson, you might enter 10 minutes viewing a projected example, 15 minutes working on student devices, and 20 minutes discussing and writing on paper. That gives you 25 minutes of planned screen exposure. If students use devices while you project directions, record those minutes as student device use so they are counted once. Use separate logs when groups follow different activity paths.
+
+The tool compares logged activity minutes with the lesson duration and flags gaps or excess time. You enter and review the minutes; it does not automatically infer durations from an uploaded document. If timing is missing, total exposure is not determined. For a syllabus, start with a specific lesson or class session.
+
+A separate four-part rubric asks whether timing is documented, screen activities have a learning purpose, offline opportunities are planned, and learners have usable access alternatives. You rate those parts yourself. Its planning score stays separate from ACE. Fewer screen minutes alone do not earn a better rating, and the estimate does not establish actual usage or a recommended health limit.
+
+## Take the Rubric With You
+
+The **[ACE review skill](https://mguhlin.github.io/ace/skills/ace-review/SKILL.md)** is a downloadable Markdown file with the rubric, rating explanations, scoring procedure, and screen-time review guidance. Give it to an assistant that can follow Markdown instructions alongside your document. It directs the assistant to cite evidence and explain uncertainty. Review its conclusions as you would the browser tool’s suggestions.
+
 ## Put High-Effect Strategies to Work
 
 Feedback matters when students can use it. Build in the revision, rather than leaving comments on work students have already finished. Visible Learning MetaX reports a weighted mean effect size of **0.50** for [feedback](https://www.visiblelearningmetax.com/influences/view/feedback).
@@ -86,4 +131,4 @@ Gen AI can generate checkpoint responses, too. A short exchange with the student
 
 Which assignment would give you more useful information if you added one pause for explanation, one for feedback, and one for application?
 
-*Try the **[ACE It assignment builder](https://mguhlin.github.io/ace/)** with an assignment you already teach.*
+*Build a draft with the **[ACE It assignment builder](https://mguhlin.github.io/ace/)**, then use **[ACE Check](https://mguhlin.github.io/ace/score.html)** to review the plan and choose your next improvement.*
