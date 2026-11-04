@@ -1,6 +1,6 @@
 # Verification
 
-Validated on October 6, 2026 with Playwright and system Chromium:
+Validated with Playwright and system Chromium:
 
 - Three checkpoints generated from the history example.
 - Concept, relationship, and generalization targets produce one, two, and three checkpoints.
@@ -63,7 +63,9 @@ The site requires no build step. Regenerate the article with
 - Bonus skill is generated with the same explanations as the browser UI.
 - The supplied combined document still scores 78 Extend and 80 Connect.
 
-## Color reports, projection, and screen-time planning — October 6, 2026
+<a id="color-reports-projection-and-screen-time-planning-october-6-2026"></a><a id="color-reports-projection-and-screen-time-planning--october-6-2026"></a>
+
+## Color reports, projection, and screen-time planning
 
 - Existing engine and browser regressions passed; private combined source still scores 78 Extend / 80 Connect and is not published.
 - PDF/DOCX import regression passed, including error preservation and local-only requests.
@@ -72,7 +74,9 @@ The site requires no build step. Regenerate the article with
 - Projection overview inspected at 1366 × 768. Browser printing has colored SVG charts; actual browser-added headers are controlled by user print settings. Direct Save PDF avoids those headers entirely.
 - Skill regenerated and validated. Timing rubric is separate from ACE and records documented planning, not health limits or measured usage. Missing timing is disclosed rather than treated as zero exposure.
 
-## Article infographic banners — October 6, 2026
+<a id="article-infographic-banners-october-6-2026"></a><a id="article-infographic-banners--october-6-2026"></a>
+
+## Article infographic banners
 
 - Generated 12 section diagrams in desktop and mobile SVG variants; every article heading has its banner immediately before it.
 - Inspected Miguel's local ACE collection, including the core ACE, SOLO + ACE, math sentence stems, and gas-laws posters, for visual inspiration.
@@ -80,7 +84,9 @@ The site requires no build step. Regenerate the article with
 - Visually inspected ACE panels, SOLO staircase, mobile presentation diagram, and mobile banners. Illustration values are explicitly labeled.
 - Printed the article to a 10-page PDF and confirmed the SVG text and new section content remain present.
 
-## Illustrated infographic redesign — October 6, 2026
+<a id="illustrated-infographic-redesign-october-6-2026"></a><a id="illustrated-infographic-redesign--october-6-2026"></a>
+
+## Illustrated infographic redesign
 
 - Replaced the displayed section banners with 12 bespoke illustrated infographic images generated through the built-in image_gen tool and imagegen skill.
 - Reviewed every image for its main labels, reading order, and conceptual accuracy. Corrected the review illustration's rating clipboard to the actual 0–3 rubric scale. The screen-time illustration shows 10 + 15 + 20 = 45 minutes and 25 minutes of planned screen exposure.
